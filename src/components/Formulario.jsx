@@ -23,6 +23,8 @@ const Formulario = () => {
                         type="text"
                         placeholder="Nombre de la Mascota"
                         className="border-2 w-full placeholder-gray-400 rounded-md"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)}
                     />
                 </div>
                 <div className="mb-5">
