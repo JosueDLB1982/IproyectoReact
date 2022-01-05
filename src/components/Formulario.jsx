@@ -7,6 +7,20 @@ const Formulario = () => {
     const [fecha, setFecha] = useState('')
     const [sintomas, setSintomas] = useState('')
 
+    const [error, setError] = useState(false)
+
+    const handleSubmit = (e) => { // esta función se activara al enviar el formulario
+        e.preventDefault()
+        // Validación del formulario
+        if ([nombre, propietario, email, fecha, sintomas].includes('')) {
+            console.log('Hay al menos un campo vacío.')
+            setError(true)
+            return
+        } else {
+            setError(false)
+        }
+    }
+
     return (
         <div className="md:w-1/2 lg:w-2/5 mx-5">
             <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
@@ -16,7 +30,16 @@ const Formulario = () => {
                 <span className="text-indigo-600 font-bold">Administralos</span>
             </p>
 
-            <form className="bg-white shadow-md rounded-lg px-5 py-10 mb-10">
+            <form
+                onSubmit={handleSubmit}
+                className="bg-white shadow-md rounded-lg px-5 py-10 mb-10"
+            >
+                {error && (
+                    <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
+                        <p>Todos los campos son obligatorios</p>
+                    </div>
+                )}
+
                 <div className="mb-5">
                     <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">
                         Nombre Mascota
