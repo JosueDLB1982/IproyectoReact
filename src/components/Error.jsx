@@ -1,7 +1,7 @@
-const Error = ({mensaje}) => { // extraigo el mensaje
+const Error = ({children}) => { // extraigo el children. Esta es otra forma de pasar props. Permite agregar mucho mas contenido.
     return (
         <div className="bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
-            <p>{mensaje}</p> {/* Muestro el mensaje anteriormente extraido */}
+            {children} {/* Muestro el children anteriormente extraido */}
         </div>
     )
 }
