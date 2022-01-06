@@ -1,6 +1,14 @@
-const Paciente = ({paciente, setPaciente}) => {
+const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
 
-    const {nombre, propietario, email, fecha, sintomas} = paciente
+    const {nombre, propietario, email, fecha, sintomas, id} = paciente
+
+    const handleEliminar = () => { // Función que le permite al usuario corrobar si desea eliminar registro
+        const respuesta = confirm(`¿Deseas eliminar el registro de ${nombre}?`)
+
+        if (respuesta) {
+            eliminarPaciente(id)
+        }
+    }
 
     return (
         <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl">
@@ -25,7 +33,8 @@ const Paciente = ({paciente, setPaciente}) => {
                     Editar
                 </button>
 
-                <button type="button" className="py-2 px-10 bg-red-600 hover:bg-red-800 text-white font-bold uppercase rounded-lg">
+                <button type="button" className="py-2 px-10 bg-red-600 hover:bg-red-800 text-white font-bold uppercase rounded-lg"
+                onClick={handleEliminar}> // Para crear arriba una función de confirmación
                     Eliminar
                 </button>
             </div>
