@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Error from "./Error"
 
-const Formulario = ({pacientes, setPacientes, paciente}) => {
+const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
     const [nombre, setNombre] = useState('')
     const [propietario, setPropietario] = useState('')
     const [email, setEmail] = useState('')
@@ -47,11 +47,24 @@ const Formulario = ({pacientes, setPacientes, paciente}) => {
                 propietario,
                 email,
                 fecha,
-                sintomas,
-                id: generarId() // llamado a la funcion generadora de id
+                sintomas
             }
-            /* console.log(objetoPaciente) */
-            setPacientes([...pacientes, objetoPaciente])
+
+            if(paciente.id) {
+                // Editando registro
+                objetoPaciente.id = paciente.id // Asigna el id a objeto paciente, puesto que es una modificación de registro
+
+                const actualizarPaciente = pacientes.map(actualizar => actualizar.id === paciente.id ? objetoPaciente : actualizar) /* Busca el que tenga el mismo id para modifircarlo */
+
+                setPacientes(actualizarPaciente) // le asigna al registro los nuevos valores procedentes de la función actualizarPaciente
+
+                setPaciente({}) // Limpia el state
+
+            } else {
+                // Nuevo registro
+                objetoPaciente.id = generarId() // llamado a la funcion generadora de id
+                setPacientes([...pacientes, objetoPaciente])
+            }
 
             /* Reiniciamos el form para que al agregar un paciente los campos se borren */
             setNombre('')
@@ -147,7 +160,7 @@ const Formulario = ({pacientes, setPacientes, paciente}) => {
                 <input
                     type="submit"
                     className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-800 cursor-pointer"
-                    value="Agregar Paciente"
+                    value={paciente.id ? 'editar registro' : 'agregar paciente'} /* Revisa si tiene id, si lo tiene es un registro existente, el botón mostrará editar paciente, si no tiene id, es nuevo, el botón dirá agregar paciente */
                 />
             </form>
 
