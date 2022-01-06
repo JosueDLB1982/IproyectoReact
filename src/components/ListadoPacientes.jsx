@@ -1,6 +1,6 @@
 import Paciente from "./Paciente"
 
-const ListadoPacientes = ({ pacientes }) => {
+const ListadoPacientes = ({ pacientes, setPaciente }) => {
     console.log(pacientes && pacientes.length) // cuenta la cantidad de elementos en el array, con esto podemos verificar si está vacío, para colocar texto condicional.
     return (
         <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
@@ -15,6 +15,7 @@ const ListadoPacientes = ({ pacientes }) => {
                         <Paciente
                             key={paciente.id}
                             paciente={paciente}
+                            setPaciente={setPaciente}
                         />
                     ))}
                 </>
