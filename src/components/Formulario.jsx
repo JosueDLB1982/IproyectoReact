@@ -10,6 +10,13 @@ const Formulario = ({pacientes, setPacientes}) => {
 
     const [error, setError] = useState(false)
 
+    const generarId = () => { // función que va a generar un id para cada iteración
+        const random = Math.random().toString(36).substring(2)
+        const fecha = Date.now().toString(36)
+
+        return random + fecha
+    }
+
     const handleSubmit = (e) => { // esta función se activara al enviar el formulario
         e.preventDefault()
         // Validación del formulario
@@ -22,15 +29,16 @@ const Formulario = ({pacientes, setPacientes}) => {
 
             // Construimos el objeto paciente
 
-            const objetoPacientes = {
+            const objetoPaciente = {
                 nombre,
                 propietario,
                 email,
                 fecha,
-                sintomas
+                sintomas,
+                id: generarId() // llamado a la funcion generadora de id
             }
             /* console.log(objetoPaciente) */
-            setPacientes([...pacientes, objetoPacientes])
+            setPacientes([...pacientes, objetoPaciente])
 
             /* Reiniciamos el form para que al agregar un paciente los campos se borren */
             setNombre('')
