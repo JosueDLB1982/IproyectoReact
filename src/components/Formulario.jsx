@@ -22,7 +22,7 @@ const Formulario = ({pacientes, setPacientes}) => {
 
             // Construimos el objeto paciente
 
-            const objetoPaciente = {
+            const objetoPacientes = {
                 nombre,
                 propietario,
                 email,
@@ -30,7 +30,7 @@ const Formulario = ({pacientes, setPacientes}) => {
                 sintomas
             }
             /* console.log(objetoPaciente) */
-            setPacientes([...pacientes, objetoPaciente])
+            setPacientes([...pacientes, objetoPacientes])
 
             /* Reiniciamos el form para que al agregar un paciente los campos se borren */
             setNombre('')

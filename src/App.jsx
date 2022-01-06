@@ -16,7 +16,9 @@ function App() {
           pacientes={pacientes}
           setPacientes={setPacientes} // Esto me va a permitir conectar el componente App con el componente Formulario
         />
-        <ListadoPacientes />
+        <ListadoPacientes 
+          pacientes={pacientes}
+        />
       </div>
 
     </div>
