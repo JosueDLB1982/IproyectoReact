@@ -34,7 +34,7 @@ const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
                 </button>
 
                 <button type="button" className="py-2 px-10 bg-red-600 hover:bg-red-800 text-white font-bold uppercase rounded-lg"
-                onClick={handleEliminar}> // Para crear arriba una función de confirmación
+                onClick={handleEliminar}> {/* Para crear arriba una función de confirmación */}
                     Eliminar
                 </button>
             </div>
