@@ -3,12 +3,12 @@ import Paciente from "./Paciente"
 
 const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
     // Esto sólo es un ejercicio de practica de uso de useEffect
-   /*  useEffect(() => {
-        if (pacientes.length > 0) {
-            console.log('Se ha ingresado un nuevo paciente')
-        }  
-    }, [pacientes])
-     */
+    /*  useEffect(() => {
+         if (pacientes.length > 0) {
+             console.log('Se ha ingresado un nuevo paciente')
+         }  
+     }, [pacientes])
+      */
     return (
         <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
             {pacientes && pacientes.length ? (

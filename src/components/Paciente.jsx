@@ -1,6 +1,6 @@
-const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
+const Paciente = ({ paciente, setPaciente, eliminarPaciente }) => {
 
-    const {nombre, propietario, email, fecha, sintomas, id} = paciente
+    const { nombre, propietario, email, fecha, sintomas, id } = paciente
 
     const handleEliminar = () => { // Función que le permite al usuario corrobar si desea eliminar registro
         const respuesta = confirm(`¿Deseas eliminar el registro de ${nombre}?`)
@@ -28,13 +28,13 @@ const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
                 <span className="font-normal normal-case">{sintomas}</span>
             </p>
             <div className="flex justify-between mt-10">
-                <button type="button" className="py-2 px-10 bg-indigo-600 hover:bg-indigo-800 text-white font-bold uppercase rounded-lg" 
-                onClick={() => setPaciente(paciente)}>
+                <button type="button" className="py-2 px-10 bg-indigo-600 hover:bg-indigo-800 text-white font-bold uppercase rounded-lg"
+                    onClick={() => setPaciente(paciente)}>
                     Editar
                 </button>
 
                 <button type="button" className="py-2 px-10 bg-red-600 hover:bg-red-800 text-white font-bold uppercase rounded-lg"
-                onClick={handleEliminar}> {/* Para crear arriba una función de confirmación */}
+                    onClick={handleEliminar}> {/* Para crear arriba una función de confirmación */}
                     Eliminar
                 </button>
             </div>

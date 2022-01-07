@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Error from "./Error"
 
-const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
+const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     const [nombre, setNombre] = useState('')
     const [propietario, setPropietario] = useState('')
     const [email, setEmail] = useState('')
@@ -11,17 +11,17 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        const {nombre, propietario, email, fecha, sintomas} = paciente
+        const { nombre, propietario, email, fecha, sintomas } = paciente
         if (Object.keys(paciente).length > 0) {
             setNombre(nombre)
             setPropietario(propietario)
             setEmail(email)
             setFecha(fecha)
             setSintomas(sintomas)
-        } 
+        }
     }, [paciente])
 
-    
+
 
     const generarId = () => { // función que va a generar un id para cada iteración
         const random = Math.random().toString(36).substring(2)
@@ -50,7 +50,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
                 sintomas
             }
 
-            if(paciente.id) {
+            if (paciente.id) {
                 // Editando registro
                 objetoPaciente.id = paciente.id // Asigna el id a objeto paciente, puesto que es una modificación de registro
 
