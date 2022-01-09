@@ -81,7 +81,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
             <p className="text-lg mt-5 text-center mb-10">
                 Añade Pacientes y {' '}
-                <span className="text-indigo-600 font-bold">Administralos</span>
+                <span className="text-indigo-600 font-bold">Adminístralos</span>
             </p>
 
             <form
