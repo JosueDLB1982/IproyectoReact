@@ -7,7 +7,7 @@ function Header() {
                 Seguimiento Pacientes{' '} {/* Agrego un espacio vacio para separar las palabras */}
                 <span className="text-indigo-600">Veterinaria</span>
             </h1>
-            <h3 className="font-black text-gray-800 text-center md:w-2/3 mx-auto">Josue Lopez - Developer Treinee</h3>
+            <h3 className="text-center text-gray-500 hover:text-green-500"><a href="https://github.com/JosueDLB1982" target='blanck'>Josue Lopez - Developer Treinee</a></h3>
         </>
     )
 }
